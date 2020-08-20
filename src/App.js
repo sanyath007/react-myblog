@@ -1,12 +1,19 @@
 import React from 'react';
 import Navigation from './components/Navigation';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import PageRenderer from './PageRenderer';
 
 function App() {
   return (
-    <div className="App">
-      <Navigation />
-      <h1>Hello World!!</h1>
-    </div>
+    <Router>
+      <div className="App">
+        <Navigation />
+        <Switch>
+          <Route path="/:page" component={ PageRenderer } />
+          <Route path="/" render={() => <Redirect to="/home" /> } />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

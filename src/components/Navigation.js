@@ -11,7 +11,7 @@ const navLink = [
     path: '/blog'
   },
   {
-    title: 'Contact',
+    title: 'Contact Us',
     path: '/contact'
   },
   {
@@ -27,8 +27,7 @@ function Navigation() {
       <ul>
         {navLink.map((link, index) => (
           <li key={index}>
-            {link.title}
-            {/* <Link to={link.path}>{link.title}</Link> */}
+            <Link to={link.path}>{link.title}</Link>
           </li>
         ))}
       </ul>
