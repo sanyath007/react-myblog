@@ -12,13 +12,21 @@ function PostGrid({posts}) {
     const firstIndex = lastIndex - pageSize;
 
     return posts.slice(firstIndex, lastIndex);
+  }, [current, pageSize, posts]);
+
+  useEffect(() => {
+    window.scroll({
+      top: 500,
+      left: 0,
+      behavior: 'smooth'
+    })
   }, [current, pageSize]);
 
   return (
     <section className="grid-pagination-container">
       <section className="post-grid container">
         {paginatedPosts.map((post, index) => (
-          <div className="post-container">
+          <div className="post-container" key={index}>
             <figure>
               <Link to={post.link}>
                 <img src={require(`../../assets/images/${post.image}`)} alt={post.image} />
@@ -52,7 +60,7 @@ function PostGrid({posts}) {
         pageSize={pageSize}
         total={posts.length}
         defaultCurrent={current}
-        onChange={() => setCurrent()}
+        onChange={setCurrent}
       />
     </section>
   )
