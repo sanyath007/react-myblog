@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS {}.users (
   last_name VARCHAR(30),
   INDEX uemail (email),
   CONSTRAINT fk_urole FOREIGN KEY(role_id)
-  REFERENCES roles(id),
-  ON DELETE CASCADE,
+  REFERENCES roles(id)
+  ON DELETE CASCADE
   ON UPDATE CASCADE
 )

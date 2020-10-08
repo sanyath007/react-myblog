@@ -11,9 +11,9 @@ CREATE TABLE IF NOT EXISTS {}.blog_posts (
   active TINYINT(1) NOT NULL DEFAULT 0,
   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  INDEX bpauthor_ind (author_id)
+  INDEX bpauthor_ind (author_id),
   CONSTRAINT fk_bpauthor FOREIGN KEY(author_id)
-  REFERENCES users(id),
-  ON DELETE CASCADE,
+  REFERENCES users(id)
+  ON DELETE CASCADE
   ON UPDATE CASCADE
 )

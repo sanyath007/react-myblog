@@ -3,16 +3,14 @@ CREATE TABLE IF NOT EXISTS {}.blog_post_comments (
   post_id INT(12) NOT NULL,
   author_id INT(12) NOT NULL,
   comment VARCHAR(250) NOT NULL,
-  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  INDEX bpcauthor_ind (author_id)
-  INDEX bpcpost_ind (post_id)
+  INDEX bpcauthor_ind (author_id),
+  INDEX bpcpost_ind (post_id),
   CONSTRAINT fk_bpcauthor FOREIGN KEY(author_id)
-  REFERENCES users(id),
-  ON DELETE CASCADE,
-  ON UPDATE CASCADE
+  REFERENCES users(id)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE,
   CONSTRAINT fk_bpcpost FOREIGN KEY(post_id)
-  REFERENCES blog_posts(id),
-  ON DELETE CASCADE,
+  REFERENCES blog_posts(id)
+  ON DELETE CASCADE
   ON UPDATE CASCADE
 )

@@ -2,7 +2,6 @@ const knex = require('../mysql');
 const promise = require('bluebird');
 const path = require('path');
 const fs = require('fs');
-const { resolve, reject } = require('bluebird');
 const db = knex.client.config.connection.database || null;
 
 function replaceAll (str, delimiter, replacement) {
@@ -22,7 +21,7 @@ fs.readdir(
         fs.readFile(
           path.resolve(
             __dirname,
-            '../migrations',
+            `../migrations/${fileName}`,
           ),
           'utf-8',
           (err, sql) => {
