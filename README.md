@@ -68,3 +68,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 # react-myblog
 
 You can watch the tutorial for this app on https://youtu.be/aI3E8mQa41w
+
+and sourcecode on https://github.com/syntacticsolutions/lavishweb-v2
